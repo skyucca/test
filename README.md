@@ -1,1 +1,1 @@
-# test
+# test network connection only
