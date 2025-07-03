@@ -44,7 +44,7 @@
         .close-btn {
             margin-top: 50px;
             padding: 20px 30px;
-            font-size: 150px;
+            font-size: 120px;
             font-weight: bold;
             color: white;
             background-color: #ff5722;
@@ -73,10 +73,29 @@
     
     <script>
         function closePage() {
-            // 打开新空白标签页
-            window.open('about:blank', '_blank');
-            // 关闭当前网页
-            window.close();
+            // 先尝试打开新空白标签页
+            const newWindow = window.open('about:blank', '_blank');
+            
+            // 尝试关闭当前窗口
+            try {
+                if (window.history.length > 1) {
+                    // 如果有历史记录，尝试返回
+                    window.history.back();
+                } else {
+                    // 尝试关闭窗口
+                    window.close();
+                }
+                
+                // 如果窗口仍然存在，显示提示
+                setTimeout(() => {
+                    if (!window.closed) {
+                        document.getElementById('messageBox').style.display = 'block';
+                    }
+                }, 500);
+                
+            } catch (e) {
+                document.getElementById('messageBox').style.display = 'block';
+            }
         }
     </script>
 </body>
