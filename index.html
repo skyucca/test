@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>OK啦！</title>
+    <title>您已上网，开始冲浪吧！</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -18,7 +18,7 @@
         }
         
         .message {
-            font-size: 10vw;
+            font-size: 8vw;
             font-weight: bold;
             color: #ff5722;
             text-align: center;
@@ -39,62 +39,12 @@
                 transform: scale(1.1);
                 color: #ff5722;
             }
-        }
-        
-        .close-btn {
-            margin-top: 50px;
-            padding: 20px 30px;
-            font-size: 120px;
-            font-weight: bold;
-            color: white;
-            background-color: #ff5722;
-            border: none;
-            border-radius: 50px;
-            cursor: pointer;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-            transition: all 0.3s ease;
-        }
-        
-        .close-btn:hover {
-            background-color: #c62828;
-            transform: translateY(-3px);
-            box-shadow: 0 6px 12px rgba(0,0,0,0.3);
-        }
-        
-        .close-btn:active {
-            transform: translateY(1px);
-        }
+        }       
+
     </style>
 </head>
 <body>
-    <div class="message">OK啦！</div>
-    <div class="message">开始锻炼大脑！</div>
-    <button class="close-btn" onclick="closePage()">关闭网页</button>
-    
-    <script>
-        function closePage() {
-            
-            // 尝试关闭当前窗口
-            try {
-                if (window.history.length > 1) {
-                    // 如果有历史记录，尝试返回
-                    window.history.back();
-                } else {
-                    // 尝试关闭窗口
-                    window.close();
-                }
-                
-                // 如果窗口仍然存在，显示提示
-                setTimeout(() => {
-                    if (!window.closed) {
-                        document.getElementById('messageBox').style.display = 'block';
-                    }
-                }, 500);
-                
-            } catch (e) {
-                document.getElementById('messageBox').style.display = 'block';
-            }
-        }
-    </script>
+    <div class="message">您已上网</div>
+    <div class="message">开始冲浪吧！</div>  
 </body>
 </html>
