@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OK啦！</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+            overflow: hidden;
+        }
+        
+        .message {
+            font-size: 10vw;
+            font-weight: bold;
+            color: #ff5722;
+            text-align: center;
+            text-shadow: 4px 4px 0px rgba(0,0,0,0.2);
+            animation: bounce 1.5s infinite alternate;
+        }
+        
+        @keyframes bounce {
+            0% {
+                transform: scale(1);
+                color: #ff5722;
+            }
+            50% {
+                transform: scale(1.2);
+                color: #ff9800;
+            }
+            100% {
+                transform: scale(1.1);
+                color: #ff5722;
+            }
+        }
+        
+        .close-btn {
+            margin-top: 50px;
+            padding: 20px 30px;
+            font-size: 120px;
+            font-weight: bold;
+            color: white;
+            background-color: #ff5722;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
+        }
+        
+        .close-btn:hover {
+            background-color: #c62828;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+        }
+        
+        .close-btn:active {
+            transform: translateY(1px);
+        }
+        
+        .info-message {
+            margin-top: 30px;
+            color: #666;
+            font-size: 16px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="message">OK啦！</div>
+    <div class="message">开始锻炼大脑！</div>
+    <button class="close-btn" onclick="closePage()">关闭网页</button>
+    <div class="info-message" id="infoMessage">如果窗口没有关闭，请手动关闭此标签页</div>
+    
+    <script>
+        function closePage() {
+            // 直接尝试关闭窗口
+            window.close();
+            
+            // 如果窗口仍然打开，显示提示信息
+            setTimeout(() => {
+                if (!window.closed) {
+                    document.getElementById('infoMessage').style.display = 'block';
+                }
+            }, 100);
+        }
+    </script>
+</body>
+</html>
